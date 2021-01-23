@@ -3,7 +3,13 @@
 
   <ul>
     <% @tasks.each do |task|%>
-      <li><%= task.name %></li>
+      <% if task.completed %>
+        <li><i class="far fa-check-square"></i> <%= link_to task.title, task_path(task) %> </li>
+      <% else %>
+        <li><i class="far fa-square"></i> <%= link_to task.title, task_path(task) %></li>
+      <% end %>
     <% end %>
   </ul>
+  <hr>
+  <%= link_to "+ Add new task", create_path%>
 </div>
