@@ -8,6 +8,7 @@
   <% else %>
     <p><i class="far fa-square"></i> This task is not completed</p>
   <% end %>
+  <%= link_to "Edit task", edit_path(@task) %>
   <hr>
   <%= link_to "← Back to task list", tasks_path %>
 </div>
