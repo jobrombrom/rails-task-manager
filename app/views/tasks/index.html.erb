@@ -4,9 +4,27 @@
   <ul>
     <% @tasks.each do |task|%>
       <% if task.completed %>
-        <li><i class="far fa-check-square"></i> <%= link_to task.title, task_path(task) %> </li>
+        <li>
+          <i class="far fa-check-square"></i>
+          <%= link_to task.title, task_path(task) %>
+          <button>
+          <%= link_to "Delete",
+                      task_path(task),
+                      method: :delete,
+                      data: { confirm: "Are you sure?" } %>
+          </button>
+        </li>
       <% else %>
-        <li><i class="far fa-square"></i> <%= link_to task.title, task_path(task) %></li>
+        <li>
+          <i class="far fa-square"></i>
+          <%= link_to task.title, task_path(task) %>
+          <button>
+          <%= link_to "Delete",
+                      task_path(task),
+                      method: :delete,
+                      data: { confirm: "Are you sure?" } %>
+          </button>
+        </li>
       <% end %>
     <% end %>
   </ul>
